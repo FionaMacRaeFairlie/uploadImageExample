@@ -42,7 +42,7 @@ app.post(
     const tempPath = req.file.path;
     const filename = req.file.originalname;
     const targetPath = path.join(__dirname, "./public/images/" + filename);
-    if (path.extname(filename).toLowerCase() === ".png") {
+    if (path.extname(filename).toLowerCase() === ".jpg") {
       fs.rename(tempPath, targetPath, (err) => {
         if (err) return handleError(err, res);
         res.status(200).render("layout", {
