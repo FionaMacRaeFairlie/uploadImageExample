@@ -42,7 +42,7 @@ app.post(
     const tempPath = req.file.path;
     const filename = req.file.originalname;
     const targetPath = path.join(__dirname, "./public/images/" + filename);
-    if (path.extname(filename).toLowerCase() === ".jpg") {
+    if (path.extname(filename).toLowerCase() === ".png") {
       fs.rename(tempPath, targetPath, (err) => {
         if (err) return handleError(err, res);
         res.status(200).render("layout", {
@@ -55,7 +55,7 @@ app.post(
         res
           .status(403)
           .contentType("text/plain")
-          .end("Only .jpg files are allowed!");
+          .end("Only .png files are allowed!");
       });
     }
   }
